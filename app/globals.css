@@ -1,15 +1,60 @@
 @import "tailwindcss";
 
+/* Lostar font - Loaded from public/fonts/Lostar.ttf */
+@font-face {
+  font-family: "Lostar";
+  src: url("/fonts/Lostar.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Custom theme colors */
+  --deep-green: #264935;
+  --deep-green-dark: #00281A;
+  --charcoal-black: #1a1a1a;
+  --heritage-gold: #8c4f18;
+  --bone-white: #fdf9d3;
+  --off-white: #f8f6f2;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  /* Custom color theme - Available as Tailwind utilities:
+   * 
+   * Background: bg-deep-green, bg-charcoal-black, bg-heritage-gold, bg-bone-white, bg-off-white
+   * Text: text-deep-green, text-charcoal-black, text-heritage-gold, text-bone-white, text-off-white
+   * Border: border-deep-green, border-charcoal-black, border-heritage-gold, border-bone-white, border-off-white
+   * Ring: ring-deep-green, ring-charcoal-black, ring-heritage-gold, ring-bone-white, ring-off-white
+   * And all other color utilities (divide-, outline-, fill-, stroke-, etc.)
+   */
+  --color-deep-green: var(--deep-green);
+  --color-deep-green-dark: var(--deep-green-dark);
+  --color-charcoal-black: var(--charcoal-black);
+  --color-heritage-gold: var(--heritage-gold);
+  --color-bone-white: var(--bone-white);
+  --color-off-white: var(--off-white);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Custom font families - Available as Tailwind utilities:
+   * 
+   * font-inter - Inter font family
+   * font-inter-tight - Inter Tight font family
+   * font-plus-jakarta-sans - Plus Jakarta Sans font family
+   * font-lostar - Lostar font family (local font)
+   */
+  --font-inter: var(--font-inter);
+  --font-inter-tight: var(--font-inter-tight);
+  --font-plus-jakarta-sans: var(--font-plus-jakarta-sans);
+  --font-lostar: "Lostar", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
