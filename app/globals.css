@@ -17,6 +17,7 @@
   --deep-green: #264935;
   --deep-green-dark: #00281A;
   --charcoal-black: #1a1a1a;
+  --charcoal-light-gray: #999999;
   --heritage-gold: #8c4f18;
   --bone-white: #fdf9d3;
   --off-white: #f8f6f2;
@@ -40,6 +41,7 @@
   --color-heritage-gold: var(--heritage-gold);
   --color-bone-white: var(--bone-white);
   --color-off-white: var(--off-white);
+  --color-charcoal-light-gray: var(--charcoal-light-gray);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
