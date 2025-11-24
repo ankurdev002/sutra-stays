@@ -6,7 +6,8 @@ type ButtonVariant =
   | "heritage-gold"
   | "bone-white"
   | "off-white"
-  | "transparent";
+  | "transparent"
+  | "off-white-2";
 
 interface ButtonProps {
   variant: ButtonVariant;
@@ -41,6 +42,8 @@ const Button: React.FC<ButtonProps> = ({
       "bg-off-white hover:bg-off-white/90 active:bg-off-white/80 border border-deep-green",
     transparent:
       "bg-transparent hover:bg-transparent/90 active:bg-transparent/80 border border-white",
+    "off-white-2":
+      "bg-off-white-2 hover:bg-off-white-2/90 active:bg-off-white-2/80 border border-deep-green",
   };
 
   const baseStyles =

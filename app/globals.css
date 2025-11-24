@@ -17,10 +17,14 @@
   --deep-green: #264935;
   --deep-green-dark: #00281A;
   --charcoal-black: #1a1a1a;
+  --charcoal-black-2: #3E3E3E;
   --charcoal-light-gray: #999999;
+  --charcoal-light-gray-2: #878787;
+  --charcoal-light-gray-3: #222222;
   --heritage-gold: #8c4f18;
   --bone-white: #fdf9d3;
   --off-white: #f8f6f2;
+  --off-white-2: #E9E9E9;
 }
 
 @theme inline {
@@ -38,11 +42,15 @@
   --color-deep-green: var(--deep-green);
   --color-deep-green-dark: var(--deep-green-dark);
   --color-charcoal-black: var(--charcoal-black);
+  --color-charcoal-black-2: var(--charcoal-black-2);
   --color-heritage-gold: var(--heritage-gold);
   --color-bone-white: var(--bone-white);
   --color-off-white: var(--off-white);
+  --color-off-white-2: var(--off-white-2);
   --color-charcoal-light-gray: var(--charcoal-light-gray);
-
+  --color-charcoal-light-gray-2: var(--charcoal-light-gray-2);
+  --color-charcoal-light-gray-3: var(--charcoal-light-gray-3);
+  
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
