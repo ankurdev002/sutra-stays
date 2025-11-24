@@ -42,7 +42,7 @@ const SutraFootPrint = () => {
                       {item.desc}
                     </p>
                   </div>
-                  <div className="rounded-3xl overflow-hidden bg-off-white-3 max-w-[246px] h-fit py-3.5 pl-5.5 pr-2">
+                  <div className="rounded-3xl overflow-hidden bg-off-white-3 w-full h-fit py-3.5 pl-5.5 pr-2">
                     <div>
                       <p className="text-black text-[40px] leading-10 font-bold font-plus-jakarta-sans">
                         {item.number}+

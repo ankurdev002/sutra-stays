@@ -21,7 +21,7 @@ const Card = ({
   return (
     <div
       key={key}
-      className="relative max-h-162.5 min-w-82.5 max-w-109.5 bg-white rounded-[14px] border border-charcoal-black flex flex-col overflow-hidden space-y-7.5"
+      className="relative max-h-162.5 min-w-82.5 w-full bg-white rounded-[14px] border border-charcoal-black flex flex-col overflow-hidden space-y-7.5"
     >
       <div className="absolute top-4 left-3 rounded-full bg-off-white p-1 w-fit flex items-center gap-1.5">
         <Image

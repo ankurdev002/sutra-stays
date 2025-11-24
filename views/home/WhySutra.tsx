@@ -49,7 +49,7 @@ const WhySutra = () => {
               {whySutra.map((item) => (
                 <div
                   key={item.title}
-                  className="rounded-3xl overflow-hidden bg-off-white-3 relative max-w-[246px] min-h-[153px] max-h-[153px]"
+                  className="rounded-3xl overflow-hidden bg-off-white-3 relative min-h-[153px] max-h-[153px]"
                 >
                   <Image
                     src={item.image}
