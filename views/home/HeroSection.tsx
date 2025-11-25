@@ -4,16 +4,16 @@ import Image from "next/image";
 const HeroSection = () => {
   return (
     <div
-      className="w-full min-h-dvh bg-cover bg-center bg-no-repeat py-24 flex items-end px-12"
+      className="w-full min-h-dvh bg-cover bg-center bg-no-repeat py-24 flex items-end px-4 lg:px-12"
       style={{ backgroundImage: "url('/assets/backgrounds/main-bg.svg')" }}
     >
-      <div className=" realtive w-full h-full flex items-end justify-between">
+      <div className=" realtive w-full h-full flex flex-col lg:flex-row items-end justify-between gap-8">
         {/* left */}
-        <div className="space-y-8 w-3/5">
-          <h1 className="text-white text-8xl font-medium font-lostar leading-28 uppercase text-start w-2/3">
+        <div className="space-y-4 lg:space-y-8 w-full lg:w-3/5">
+          <h1 className="text-white text-6xl lg:text-8xl font-medium font-lostar lg:leading-28 uppercase text-center lg:text-start lg:w-2/3">
             Stay. Belong. Be
           </h1>
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 justify-center lg:justify-start">
             <Button
               variant="off-white"
               className="rounded-full min-h-19 min-w-19 text-black border-0"
@@ -26,13 +26,13 @@ const HeroSection = () => {
                 />
               }
             />
-            <p className="text-white text-4xl font-medium font-inter leading-10 capitalize">
+            <p className="text-white lg:text-4xl font-medium font-inter lg:leading-10 capitalize">
               Every stay is a Sutra a story of peace, presence, and pure nature.
             </p>
           </div>
-          <hr className="w-3/4" />
-          <div className="flex items-center gap-3.5">
-            <div className="rounded-full bg-off-white p-1.5 w-fit flex items-center gap-1.5">
+          <hr className="lg:w-3/4" />
+          <div className="flex flex-col lg:flex-row items-center gap-3.5">
+            <div className="rounded-full bg-off-white p-1.5 lg:w-fit flex items-center gap-1.5">
               <Image
                 src="/assets/icons/g-sign.svg"
                 alt="hero"
@@ -54,7 +54,7 @@ const HeroSection = () => {
                 4.8
               </p>
             </div>
-            <div className="flex items-center gap-3.5">
+            <div className="flex flex-col lg:flex-row items-center gap-3.5">
               <p className="text-[#FFFFFFB2] text-sm font-medium font-inter leading-3 uppercase -tracking-[.2px]">
                 Gold verified
               </p>

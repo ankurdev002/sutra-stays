@@ -52,7 +52,7 @@ const Card = ({
         height={329}
         className="rounded-lg overflow-hidden w-full h-full object-cover"
       />
-      <div className="flex flex-col justify-between px-7.5 gap-y-5">
+      <div className="flex flex-col justify-between px-7.5 gap-y-3 lg:gap-y-5">
         <p className="text-start font-inter text-[22px] text-charcoal-light-gray-3 font-semibold leading-6.5">
           {title}
         </p>
@@ -78,7 +78,7 @@ const Card = ({
             </div>
           </div>
         </div>
-        <div className="py-7.5">
+        <div className="py-3 lg:py-7.5">
           <p className="flex justify-between">
             <span className="flex items-center gap-3">
               <span className="text-black text-xs font-light font-inter-tight">
@@ -103,7 +103,7 @@ const Card = ({
             </span>
           </p>
         </div>
-        <div className="py-9">
+        <div className="py-3 lg:py-9">
           <Button
             variant="transparent"
             label="View Property"
