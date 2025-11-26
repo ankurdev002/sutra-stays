@@ -30,7 +30,7 @@ const HeroSection = () => {
               Every stay is a Sutra a story of peace, presence, and pure nature.
             </p>
           </div>
-          <hr className="lg:w-3/4" />
+          <hr className="lg:w-3/4 border-white" />
           <div className="flex flex-col lg:flex-row items-center gap-3.5">
             <div className="rounded-full bg-off-white p-1.5 lg:w-fit flex items-center gap-1.5">
               <Image
