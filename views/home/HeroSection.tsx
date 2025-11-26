@@ -58,7 +58,7 @@ const HeroSection = () => {
               <p className="text-[#FFFFFFB2] text-sm font-medium font-inter leading-3 uppercase -tracking-[.2px]">
                 Gold verified
               </p>
-              <p className="text-WHITE text-sm font-medium font-inter leading-3">Our Customers love to work with us, 40 Reviews</p>
+              <p className="text-white text-sm font-medium font-inter leading-3">Our Customers love to work with us, 40 Reviews</p>
             </div>
           </div>
         </div>
