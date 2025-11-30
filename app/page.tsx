@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <div className="h-full w-full">
       <HeroSection />
-      <Featured />
-      <WhySutra />
+      <Featured data-section="stays"/>
+      <WhySutra data-section="about-us"/>
       <SutraFootPrint />
-      <SutraClients />
+      <SutraClients data-section="reviews"/>
       <ExploreSutra />
     </div>
   );
