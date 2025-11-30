@@ -135,7 +135,9 @@ export default function RootLayout({
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <main className="h-full w-full bg-off-white">{children}</main>
-          <Footer data-section="contact-us" />
+          <footer id="contact" data-section="contact-us">
+            <Footer />
+          </footer>
         </div>
       </body>
     </html>

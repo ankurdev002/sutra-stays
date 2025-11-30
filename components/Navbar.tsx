@@ -42,19 +42,29 @@ const Navbar = () => {
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href.startsWith("#")) {
       e.preventDefault();
-      const element = document.querySelector(href);
+      const id = href.substring(1); // Remove the # symbol
+      const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
+      } else {
+        // Fallback: try to find element with data-section matching the id
+        const sectionElement = document.querySelector(`[data-section="${id}"]`);
+        if (sectionElement) {
+          sectionElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
       }
     }
   };
 
   // Book Now handler - scrolls to stays section
   const handleBookNow = () => {
-    const staysSection = document.querySelector("#stays");
+    const staysSection = document.getElementById("stays");
     if (staysSection) {
       staysSection.scrollIntoView({
         behavior: "smooth",
