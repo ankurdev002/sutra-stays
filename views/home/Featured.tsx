@@ -1,58 +1,10 @@
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Image from "next/image";
+import { staysData } from "@/constants/staysData";
 
 const Featured = () => {
-  const featuredStays = [
-    {
-      title: "Sutra Stays® — The Silver Oaks Cottage",
-      location: "Bhimtal, Uttarakhand",
-      rating: 4.8,
-      reviews: 100,
-      price: 1000,
-      image: "/assets/images/grid-img.svg",
-    },
-    {
-      title: "Sutra Stays® — The Silver Oaks Cottage",
-      location: "Bhimtal, Uttarakhand",
-      rating: 4.8,
-      reviews: 100,
-      price: 1000,
-      image: "/assets/images/grid-img.svg",
-    },
-    {
-      title: "Sutra Stays® — The Silver Oaks Cottage",
-      location: "Bhimtal, Uttarakhand",
-      rating: 4.8,
-      reviews: 100,
-      price: 1000,
-      image: "/assets/images/grid-img.svg",
-    },
-    {
-      title: "Sutra Stays® — The Silver Oaks Cottage",
-      location: "Bhimtal, Uttarakhand",
-      rating: 4.8,
-      reviews: 100,
-      price: 1000,
-      image: "/assets/images/grid-img.svg",
-    },
-    {
-      title: "Sutra Stays® — The Silver Oaks Cottage",
-      location: "Bhimtal, Uttarakhand",
-      rating: 4.8,
-      reviews: 100,
-      price: 1000,
-      image: "/assets/images/grid-img.svg",
-    },
-    {
-      title: "Sutra Stays® — The Silver Oaks Cottage",
-      location: "Bhimtal, Uttarakhand",
-      rating: 4.8,
-      reviews: 100,
-      price: 1000,
-      image: "/assets/images/grid-img.svg",
-    },
-  ];
+  const featuredStays = staysData;
   return (
     <div className="w-full min-h-dvh bg-white py-24 px-12 space-y-8">
       <h1 className="text-2xl font-inter font-extralight leading-4.5 tracking-0 text-charcoal-light-gray">
@@ -97,9 +49,10 @@ const Featured = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center mx-auto">
-        {featuredStays.map((stay, index) => (
+        {featuredStays.map((stay) => (
           <Card
-            key={index.toString()}
+            key={stay.id}
+            id={stay.id}
             title={stay.title}
             location={stay.location}
             rating={stay.rating}

@@ -1,7 +1,10 @@
+"use client";
 import Image from "next/image";
 import Button from "./Button";
+import { useRouter } from "next/navigation";
 
 const Card = ({
+  id,
   title,
   location,
   rating,
@@ -10,6 +13,7 @@ const Card = ({
   image,
   key,
 }: {
+  id: string;
   title: string;
   location: string;
   rating: number;
@@ -18,6 +22,11 @@ const Card = ({
   image: string;
   key: string;
 }) => {
+  const router = useRouter();
+
+  const handleViewProperty = () => {
+    router.push(`/stays/${id}`);
+  };
   return (
     <div
       key={key}
@@ -108,6 +117,7 @@ const Card = ({
             variant="transparent"
             label="View Property"
             className="rounded-0 border-0 px-0! flex justify-between! w-full text-black"
+            method={handleViewProperty}
             icon={
               <Image
                 src="/assets/icons/arrow-right.svg"
