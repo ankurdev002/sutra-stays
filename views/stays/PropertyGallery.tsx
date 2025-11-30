@@ -12,32 +12,30 @@ const PropertyGallery = ({ images }: PropertyGalleryProps) => {
 
   return (
     <div className="mb-8">
-      {/* Container with max height 494px */}
-      <div className="relative w-full max-h-[494px] rounded-2xl overflow-hidden">
-        <div className="flex gap-[19px] h-[494px]">
-          {/* Main large image on the left - 494px height */}
+      <div className="relative w-full lg:max-h-[494px] rounded-2xl overflow-hidden">
+        <div className="flex flex-col lg:flex-row gap-[19px] lg:h-[494px]">
           <div 
-            className="relative flex-[1.65] min-w-0 h-[494px]"
-            style={{ aspectRatio: '637/494' }}
+            className="relative w-full lg:flex-[1.65] min-w-0 h-[300px] sm:h-[400px] lg:h-[494px]"
+            style={{ aspectRatio: 'auto' }}
           >
             <Image
               src={images[selectedImage] || images[0]}
               alt="Property main"
               fill
-              className="object-cover rounded-l-2xl"
+              className="object-cover rounded-t-2xl lg:rounded-l-2xl lg:rounded-t-none"
               priority
             />
           </div>
-          {/* Thumbnail images on the right in 2x2 grid */}
-          {/* Grid height: 494px, gap: 19px, so each row = (494 - 19) / 2 = 237.5px */}
-          <div className="grid grid-cols-2 gap-[19px] flex-1 min-w-0 h-[494px]">
+          <div className="grid grid-cols-2 gap-[19px] w-full lg:flex-1 min-w-0 h-auto lg:h-[494px]">
             {images.slice(0, 4).map((image, index) => (
               <div
                 key={index}
-                className={`relative w-full h-full cursor-pointer group overflow-hidden ${
+                className={`relative w-full h-[150px] sm:h-[200px] lg:h-full cursor-pointer group overflow-hidden ${
                   index === 0 ? 'none' : ''
                 } ${
-                  index === 3 ? 'rounded-br-2xl' : ''
+                  index === 3 ? 'rounded-br-2xl lg:rounded-br-2xl' : ''
+                } ${
+                  index === 2 ? 'rounded-bl-2xl lg:rounded-bl-none' : ''
                 } ${
                   selectedImage === index ? 'ring-2 ring-deep-green' : ''
                 }`}

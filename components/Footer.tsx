@@ -47,7 +47,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="w-full h-[300px] bg-deep-green-dark px-15 py-19 grid grid-cols-3 items-center">
+    <div className="w-full h-[300px] bg-deep-green-dark px-15 py-19 grid grid-cols-3 items-center gap-4">
       <div className="space-y-2.5">
         <Image
           src="/assets/logo/footer-logo.svg"
@@ -81,7 +81,7 @@ const Footer = () => {
         <p className="text-bone-white text-sm font-medium font-inter leading-6 tracking-[2px]">
           +91 XXXXXXXXXX
         </p>
-        <p className="text-bone-white text-sm font-medium font-inter leading-6 tracking-[2px]">
+        <p className="text-bone-white text-sm font-medium font-inter leading-6 tracking-[2px] wrap-anywhere">
           E: Reservations.sutrastays@gmail.com
         </p>
         <Image
