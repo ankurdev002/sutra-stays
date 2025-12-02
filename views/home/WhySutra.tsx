@@ -24,16 +24,16 @@ const WhySutra = () => {
     },
   ];
   return (
-    <div className="w-full min-h-dvh bg-deep-green-dark py-24 px-18">
-      <h1 className="text-2xl font-inter font-extralight leading-4.5 tracking-0 text-charcoal-light-gray">
+    <div className="w-full min-h-dvh bg-deep-green-dark py-24 px-4 lg:px-18">
+      <h1 className="lg:text-2xl font-inter font-extralight leading-4.5 tracking-0 text-charcoal-light-gray">
         02 — Why Sutra Stays?
       </h1>
-      <p className="pt-4.5 text-white text-5xl font-light font-inter">
+      <p className="pt-4.5 text-white text-2xl lg:text-5xl font-light font-inter">
         Where comfort meets reliability.
       </p>
       <div className="border-[0.5px] border-b-0 p-1.5 mt-6"></div>
-      <div className="flex items-center justify-between w-full pt-10">
-        <div className="w-2/5 flex flex-col justify-start gap-11">
+      <div className="flex flex-col lg:flex-row items-center justify-between w-full pt-4 lg:pt-10">
+        <div className="lg:w-2/5 flex flex-col justify-start gap-11">
           <p className="pt-10 text-white text-lg font-normal font-inter leading-7 tracking-[-0.2px]">
             <span className="font-semibold!">Our featured properties</span>{" "}
             bring together nature, comfort, and mindful design. From curated
@@ -71,7 +71,7 @@ const WhySutra = () => {
             </div>
           </div>
         </div>
-        <div className="w-2/5">
+        <div className="pt-8 lg:pt-0 lg:w-2/5">
           <Image
             src="/assets/images/section-why-rm.svg"
             alt="why-sutra"

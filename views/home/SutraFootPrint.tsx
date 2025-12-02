@@ -14,16 +14,16 @@ const SutraFootPrint = () => {
     },
   ];
   return (
-    <div className="w-full min-h-dvh bg-white py-24 px-12">
-      <h1 className="text-2xl font-inter font-extralight leading-4.5 tracking-0 text-charcoal-light-gray">
+    <div className="w-full min-h-dvh bg-white py-24 px-4 lg:px-12">
+      <h1 className="lg:text-2xl font-inter font-extralight leading-4.5 tracking-0 text-charcoal-light-gray">
         03 — A Trail of Thoughtful Stays
       </h1>
-      <p className="pt-4.5 text-black text-5xl font-light font-inter">
+      <p className="pt-4.5 text-black text-2xl lg:text-5xl font-light font-inter">
         The Sutra Footprint
       </p>
-      <div className="flex items-start justify-between w-full pt-10">
-        <div className="w-2/5 flex flex-col justify-start gap-11">
-          <p className="text-black text-lg font-semibold font-inter leading-7 tracking-[-0.2px]">
+      <div className="flex flex-col lg:flex-row items-start justify-between w-full pt-10">
+        <div className="lg:w-2/5 flex flex-col justify-start gap-11">
+          <p className="text-black text-base lg:text-lg lg:font-semibold font-inter lg:leading-7 tracking-[-0.2px]">
             <span className="font-semibold!">Our featured properties</span>{" "}
             bring together nature, comfort, and mindful design. From curated
             interiors to personalized services, every Sutra stay offers a
@@ -57,7 +57,7 @@ const SutraFootPrint = () => {
             </div>
           </div>
         </div>
-        <div className="w-2/5">
+        <div className="pt-8 lg:pt-0 lg:w-2/5">
           <Image
             src="/assets/images/section-map.svg"
             alt="why-sutra"

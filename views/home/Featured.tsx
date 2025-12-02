@@ -6,24 +6,24 @@ import { staysData } from "@/constants/staysData";
 const Featured = () => {
   const featuredStays = staysData;
   return (
-    <div className="w-full min-h-dvh bg-white py-24 px-12 space-y-8">
-      <h1 className="text-2xl font-inter font-extralight leading-4.5 tracking-0 text-charcoal-light-gray">
+    <div className="w-full min-h-dvh bg-white py-24 px-4 lg:px-12 space-y-8">
+      <h1 className="lg:text-2xl font-inter font-extralight leading-4.5 tracking-0 text-charcoal-light-gray">
         01 — Featured Stays
       </h1>
 
       <div className="flex items-center justify-center">
-        <h1 className="relative w-fit text-[100px] font-inter font-light leading-30 uppercase text-black text-center">
+        <h1 className="relative w-fit text-2xl lg:text-[100px] font-inter font-light lg:leading-30 uppercase text-black text-center">
           Serene & Premium
           <Image
             src="/assets/images/leaf.svg"
             alt="wave"
             width={75}
             height={75}
-            className="absolute bottom-0 -right-10"
+            className="absolute -bottom-5 -rotate-90 lg:bottom-0 lg:rotate-0 -right-10"
           />
         </h1>
       </div>
-      <p className="text-charcoal-light-gray-2 text-sm font-inter font-extralight leading-7 -tracking-[.2px] text-center px-10">
+      <p className="text-charcoal-light-gray-2 text-sm font-inter font-extralight lg:leading-7 -tracking-[.2px] text-center lg:px-10">
         Our featured properties bring together nature, comfort, and mindful
         design. From curated interiors to personalized services, every Sutra
         stay offers a seamless balance of warmth, privacy, and tranquility.
@@ -48,7 +48,7 @@ const Featured = () => {
           />
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center mx-auto">
         {featuredStays.map((stay) => (
           <Card
             key={stay.id}

@@ -69,21 +69,21 @@ const SutraClients = () => {
   const currentClient = clients[currentIndex];
 
   return (
-    <div className="w-full min-h-dvh bg-off-white py-24 px-20">
-      <h1 className="text-2xl font-inter font-extralight leading-4.5 tracking-0 text-charcoal-light-gray">
+    <div className="w-full min-h-dvh bg-off-white py-24 px-4 lg:px-20">
+      <h1 className="lg:text-2xl font-inter font-extralight leading-4.5 tracking-0 text-charcoal-light-gray">
         04 — What Our Clients Say
       </h1>
-      <p className="pt-4.5 text-black text-5xl font-light font-inter">
+      <p className="pt-4.5 text-black text-2xl lg:text-5xl font-light font-inter">
         In Their Words
       </p>
-      <div className="flex items-start justify-center pt-8">
-        <div className="flex justify-start gap-10 items-center">
+      <div className="flex flex-col lg:flex-row items-start justify-center pt-8">
+        <div className="flex flex-col lg:flex-row justify-start gap-10 items-center">
           <div className="relative w-fit">
             <video
               ref={videoRef}
               key={currentIndex}
-              className="rounded-3xl overflow-hidden"
-              style={{ width: "400px", height: "560px", objectFit: "fill" }}
+              className="rounded-3xl overflow-hidden w-[320px] h-[220px] object-cover lg:w-[400px] lg:h-[560px] lg:object-fill"
+              // style={{ width: "400px", height: "560px", objectFit: "fill" }}
               muted
             >
               <source src={currentClient.video} type="video/mp4" />
@@ -113,21 +113,22 @@ const SutraClients = () => {
             </button>
           </div>
           {/* carosuel */}
-          <div className="w-2/4 flex flex-col justify-start gap-16 relative">
+          <div className="w-full lg:w-2/4 flex flex-col justify-start gap-16 relative">
             <div className="flex items-start gap-9">
               <Image
                 src="/assets/images/quote.svg"
                 alt={currentClient.name}
                 width={42}
                 height={38}
+                className="hidden lg:block"
               />
-              <div className="flex flex-col gap-16 flex-1">
+              <div className="flex flex-col gap-4 lg:gap-16 flex-1">
                 <div className="overflow-hidden">
                   <div
                     key={currentIndex}
                     className="transition-all duration-500 ease-in-out animate-fade-in"
                   >
-                    <p className="text-black/60 text-2xl font-semibold font-plus-jakarta-sans leading-7">
+                    <p className="text-black/60 text-base lg:text-2xl font-semibold font-plus-jakarta-sans lg:leading-7">
                       {currentClient.review}
                     </p>
                   </div>
