@@ -91,7 +91,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 h-23 bg-[#00000066] flex justify-between items-center px-10 drop-shadow-md">
+    <div className="fixed top-0 left-0 right-0 z-50 h-23 bg-[#00000066] flex justify-between items-center px-4 lg:px-10 drop-shadow-md">
       <Link href="/">
         <Image
           src="/assets/logo/nav-logo.svg"
