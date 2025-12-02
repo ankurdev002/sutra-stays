@@ -47,7 +47,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="w-full h-[300px] bg-deep-green-dark px-15 py-19 grid grid-cols-3 items-center gap-4">
+    <div className="w-full lg:h-[300px] bg-deep-green-dark px-4 lg:px-15 py-10 lg:py-19 grid grid-cols-1 lg:grid-cols-3 items-center gap-8 lg:gap-4">
       <div className="space-y-2.5">
         <Image
           src="/assets/logo/footer-logo.svg"
@@ -55,33 +55,33 @@ const Footer = () => {
           width={135}
           height={70}
         />
-        <p className="text-bone-white text-sm font-medium font-inter leading-6 tracking-[2px]">
+        <p className="text-bone-white text-xs lg:text-sm font-medium font-inter lg:leading-6 lg:tracking-[2px]">
           Sutra Stays 2025. All rights reserved
         </p>
-        <p className="text-bone-white text-sm font-medium font-inter leading-5 tracking-[2px]">
+        <p className="text-bone-white text-xs lg:text-sm font-medium font-inter lg:leading-5 lg:tracking-[2px]">
           Prefer a personal touch? Just write to us.
         </p>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-1 lg:gap-3">
         {footerLinks.map((link) => (
           <Link
             href={link.href}
             key={link.label}
             onClick={(e) => handleSmoothScroll(e, link.href)}
-            className="text-bone-white text-sm font-medium font-inter leading-6 tracking-[2px]"
+            className="text-bone-white text-xs lg:text-sm font-medium font-inter lg:leading-6 lg:tracking-[2px]"
           >
             {link.label}
           </Link>
         ))}
       </div>
-      <div className="flex flex-col gap-3">
-        <p className="text-bone-white text-sm font-medium font-inter leading-6 tracking-[2px]">
+      <div className="flex flex-col gap-1 lg:gap-3">
+        <p className="text-bone-white text-xs lg:text-sm font-medium font-inter lg:leading-6 lg:tracking-[2px]">
           CONTACT
         </p>
-        <p className="text-bone-white text-sm font-medium font-inter leading-6 tracking-[2px]">
+        <p className="text-bone-white text-xs lg:text-sm font-medium font-inter lg:leading-6 lg:tracking-[2px]">
           +91 XXXXXXXXXX
         </p>
-        <p className="text-bone-white text-sm font-medium font-inter leading-6 tracking-[2px] wrap-anywhere">
+        <p className="text-bone-white text-xs lg:text-sm font-medium font-inter lg:leading-6 lg:tracking-[2px] wrap-anywhere">
           E: Reservations.sutrastays@gmail.com
         </p>
         <Image
