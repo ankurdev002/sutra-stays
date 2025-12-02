@@ -17,6 +17,7 @@ const Navbar = () => {
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
   const languageDropdownRef = useRef<HTMLDivElement>(null);
+  const sidebarRef = useRef<HTMLDivElement>(null);
 
   // Handle click outside to close language dropdown
   useEffect(() => {
@@ -38,8 +39,45 @@ const Navbar = () => {
     };
   }, [isLanguageDropdownOpen]);
 
+  // Handle click outside to close sidebar drawer
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node) &&
+        !(event.target as HTMLElement).closest("[data-menu-button]")
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
+  // Prevent body scroll when sidebar is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
+
   // Smooth scroll handler for anchor links
-  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     if (href.startsWith("#")) {
       e.preventDefault();
       const id = href.substring(1); // Remove the # symbol
@@ -59,6 +97,8 @@ const Navbar = () => {
           });
         }
       }
+      // Close sidebar after navigation
+      setIsMenuOpen(false);
     }
   };
 
@@ -80,10 +120,12 @@ const Navbar = () => {
         });
       }
     }
+    // Close sidebar after navigation
+    setIsMenuOpen(false);
   };
 
   // Language selection handler
-  const handleLanguageSelect = (language: typeof languages[0]) => {
+  const handleLanguageSelect = (language: (typeof languages)[0]) => {
     setSelectedLanguage(language);
     setIsLanguageDropdownOpen(false);
     // Here you can add logic to change the app language
@@ -109,6 +151,7 @@ const Navbar = () => {
           height={40}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="cursor-pointer"
+          data-menu-button
         />
       </div>
       <div className="hidden lg:flex flex-1 gap-9.5 items-center justify-center">
@@ -168,6 +211,124 @@ const Navbar = () => {
               ))}
             </div>
           )}
+        </div>
+      </div>
+
+      {/* Sidebar Drawer Overlay */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 h-screen bg-black/50 z-999 lg:hidden transition-opacity duration-300"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+
+      {/* Sidebar Drawer */}
+      <div
+        ref={sidebarRef}
+        className={`fixed top-0 right-0 h-screen w-80 bg-deep-green z-999 lg:hidden transform transition-transform duration-300 ease-in-out shadow-2xl ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Header with close button */}
+          <div className="flex justify-between items-center p-6 border-b border-deep-green/20">
+            <Link href="/" onClick={() => setIsMenuOpen(false)}>
+              <Image
+                src="/assets/logo/nav-logo.svg"
+                alt="logo"
+                width={100}
+                height={100}
+                className="cursor-pointer"
+              />
+            </Link>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="text-bone-white hover:text-white transition-colors duration-200 p-2"
+              aria-label="Close menu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Navigation Links */}
+          <nav className="flex-1 px-6 py-8 space-y-4">
+            {navlinks.map((link) => (
+              <Link
+                href={link.href}
+                key={link.label}
+                onClick={(e) => handleSmoothScroll(e, link.href)}
+                className="block text-bone-white text-base font-medium font-inter py-3 px-4 hover:text-white hover:bg-deep-green/10 rounded-lg transition-all duration-300"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Footer with Book Now and Language Selector */}
+          <div className="p-6 border-t border-deep-green/20 space-y-4">
+            <Button
+              variant="off-white"
+              className="rounded-full text-black border-0 w-full"
+              label="Book Now"
+              method={handleBookNow}
+            />
+            <div className="relative" ref={languageDropdownRef}>
+              <Button
+                variant="charcoal-black"
+                className="rounded-full text-white border-[0.84px] border-white/40 bg-black! w-full"
+                label={selectedLanguage.label}
+                method={() =>
+                  setIsLanguageDropdownOpen(!isLanguageDropdownOpen)
+                }
+                icon={
+                  <Image
+                    src="/assets/icons/down-arrow.svg"
+                    alt="language selector"
+                    width={16}
+                    height={16}
+                    className={`transition-transform duration-200 brightness-0 invert ${
+                      isLanguageDropdownOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                }
+              />
+              {isLanguageDropdownOpen && (
+                <div className="absolute bottom-full left-0 right-0 mb-2 w-full bg-charcoal-black rounded-lg shadow-lg border border-deep-green/20 overflow-hidden animate-fade-in">
+                  {languages.map((language) => (
+                    <button
+                      key={language.code}
+                      onClick={() => handleLanguageSelect(language)}
+                      className={`w-full px-4 py-3 text-left text-sm font-inter transition-colors duration-200 ${
+                        selectedLanguage.code === language.code
+                          ? "bg-deep-green text-bone-white"
+                          : "text-bone-white hover:bg-deep-green/50"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span>{language.name}</span>
+                        <span className="text-xs opacity-75">
+                          {language.label}
+                        </span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
