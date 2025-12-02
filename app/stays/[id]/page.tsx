@@ -34,7 +34,7 @@ export default async function StayPage({ params }: { params: Promise<{ id: strin
 
   return (
     <div className="w-full min-h-screen bg-white overflow-x-hidden" data-section={`stay-${stay.id}`}>
-      <div className="max-w-[1440px] mx-auto px-[70px] w-full mt-[120px]">
+      <div className="max-w-[1440px] mx-auto px-4 lg:px-[70px] w-full mt-[120px]">
         <PropertyHeader stay={stay} />
         <PropertyGallery images={stay.images} />
         <div className="relative">

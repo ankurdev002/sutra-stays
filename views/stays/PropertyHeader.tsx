@@ -12,7 +12,7 @@ interface PropertyHeaderProps {
 
 const PropertyHeader = ({ stay }: PropertyHeaderProps) => {
   return (
-    <div className="sticky top-0 z-40 bg-white px-4 sm:px-6 lg:px-12 py-4 mb-[48px]">
+    <div className="sticky top-0 z-40 bg-white py-4 mb-[48px]">
       <div className="max-w-[1440px] mx-auto w-full flex flex-col justify-between gap-4">
         {/* Top section: Title, description, reviews */}
         <div className="flex-1 min-w-0">
