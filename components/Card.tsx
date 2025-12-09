@@ -2,6 +2,23 @@
 import Image from "next/image";
 import Button from "./Button";
 import { useRouter } from "next/navigation";
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+interface CardProps {
+  id: string;
+  title: string;
+  location: string;
+  rating: number;
+  reviews: number;
+  price: number;
+  image: string;
+}
 
 const Card = ({
   id,
@@ -11,26 +28,100 @@ const Card = ({
   reviews,
   price,
   image,
-  key,
-}: {
-  id: string;
-  title: string;
-  location: string;
-  rating: number;
-  reviews: number;
-  price: number;
-  image: string;
-  key: string;
-}) => {
+}: CardProps) => {
   const router = useRouter();
+  const cardRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!cardRef.current || !imageRef.current) return;
+
+    const card = cardRef.current;
+    const imageElement = imageRef.current;
+
+    // Initial reveal animation
+    const animation = gsap.fromTo(
+      card,
+      {
+        opacity: 0,
+        y: 40,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none none",
+          once: true,
+        },
+      }
+    );
+
+    // Hover animations
+    const handleMouseEnter = () => {
+      gsap.to(card, {
+        y: -8,
+        duration: 0.4,
+        ease: "power2.out",
+      });
+      gsap.to(imageElement, {
+        scale: 1.1,
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    };
+
+    const handleMouseLeave = () => {
+      gsap.to(card, {
+        y: 0,
+        duration: 0.4,
+        ease: "power2.out",
+      });
+      gsap.to(imageElement, {
+        scale: 1,
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    };
+
+    card.addEventListener("mouseenter", handleMouseEnter);
+    card.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      animation.kill();
+      const triggers = ScrollTrigger.getAll().filter(
+        (trigger) => trigger.vars.trigger === card
+      );
+      triggers.forEach((trigger) => trigger.kill());
+      card.removeEventListener("mouseenter", handleMouseEnter);
+      card.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
 
   const handleViewProperty = () => {
-    router.push(`/stays/${id}`);
+    if (cardRef.current) {
+      gsap.to(cardRef.current, {
+        scale: 0.95,
+        opacity: 0.8,
+        duration: 0.2,
+        ease: "power2.out",
+        onComplete: () => {
+          router.push(`/stays/${id}`);
+        },
+      });
+    } else {
+      router.push(`/stays/${id}`);
+    }
   };
+
   return (
     <div
-      key={key}
-      className="relative max-h-162.5 min-w-82.5 w-full bg-white rounded-[14px] border border-charcoal-black flex flex-col overflow-hidden space-y-7.5"
+      ref={cardRef}
+      className="relative max-h-162.5 min-w-82.5 w-full bg-white rounded-[14px] border border-charcoal-black flex flex-col overflow-hidden space-y-7.5 cursor-pointer"
+      data-reveal-item
     >
       <div className="absolute top-4 left-3 rounded-full bg-off-white p-1 w-fit flex items-center gap-1.5">
         <Image
@@ -54,13 +145,15 @@ const Card = ({
           {rating}
         </p>
       </div>
-      <Image
-        src={image}
-        alt="card"
-        width={439}
-        height={329}
-        className="rounded-lg overflow-hidden w-full h-full object-cover"
-      />
+      <div ref={imageRef} className="overflow-hidden rounded-lg">
+        <Image
+          src={image}
+          alt="card"
+          width={439}
+          height={329}
+          className="rounded-lg w-full h-full object-cover"
+        />
+      </div>
       <div className="flex flex-col justify-between px-7.5 gap-y-3 lg:gap-y-5">
         <p className="text-start font-inter text-[22px] text-charcoal-light-gray-3 font-semibold leading-6.5">
           {title}

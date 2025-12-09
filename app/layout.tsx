@@ -10,6 +10,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import PageLoader from "@/components/PageLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -132,9 +133,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${interTight.variable} ${plusJakartaSans.variable} antialiased`}
       >
         <GoogleAnalytics />
+        <PageLoader />
         <div className="flex flex-col min-h-screen">
           <Navbar />
-          <main className="h-full w-full bg-off-white">{children}</main>
+          <main className="h-full w-full bg-off-white" data-page-content>
+            {children}
+          </main>
           <footer id="contact" data-section="contact-us">
             <Footer />
           </footer>
