@@ -132,7 +132,7 @@ const PropertyHeader = ({ stay }: PropertyHeaderProps) => {
           >
             <ShareIcon />
             <span className="text-[16px] font-medium font-inter underline underline-offset-4">
-              share
+              Share
             </span>
           </button>
           <button

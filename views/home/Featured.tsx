@@ -173,13 +173,13 @@ const Featured = () => {
           />
           <Button
             variant="off-white-2"
-            label="Leisur Stays"
-            className="px-3.75! py-2.5! text-black rounded-full text-xs leading-7 font-inter font-weight-medium border border-[#4e4e4e]!"
+            label="Leisure Stays"
+            className="px-3.75! py-2.5! whitespace-nowrap xs:whitespace-normal text-black rounded-full text-xs leading-7 font-inter font-weight-medium border border-[#4e4e4e]!"
           />
           <Button
             variant="transparent"
             label="Classic Stays"
-            className="px-3.75! py-2.5! rounded-full text-xs leading-7 text-white font-inter font-weight-medium border border-[#4e4e4e]!"
+            className="px-3.75! py-2.5! whitespace-nowrap xs:whitespace-normal rounded-full text-xs leading-7 text-white font-inter font-weight-medium border border-[#4e4e4e]!"
           />
         </div>
       </div>

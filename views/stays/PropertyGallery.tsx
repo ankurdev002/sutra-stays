@@ -98,7 +98,6 @@ const PropertyGallery = ({ images }: PropertyGalleryProps) => {
   const handleOpenModal = () => {
     setIsModalOpen(true);
     setModalSelectedImage(selectedImage);
-    document.body.style.overflow = "hidden";
   };
 
   const handleCloseModal = () => {
@@ -110,12 +109,10 @@ const PropertyGallery = ({ images }: PropertyGalleryProps) => {
         ease: "power2.out",
         onComplete: () => {
           setIsModalOpen(false);
-          document.body.style.overflow = "auto";
         },
       });
     } else {
       setIsModalOpen(false);
-      document.body.style.overflow = "auto";
     }
   };
 
@@ -193,6 +190,28 @@ const PropertyGallery = ({ images }: PropertyGalleryProps) => {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isModalOpen, modalSelectedImage, images.length]);
+
+  // Cleanup: Ensure scroll is re-enabled when component unmounts or modal state changes
+  useEffect(() => {
+    return () => {
+      // Re-enable scroll when component unmounts (e.g., when navigating away)
+      document.body.style.overflow = "unset";
+    };
+  }, []);
+
+  // Ensure scroll state is managed correctly when modal opens/closes
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup function to ensure scroll is re-enabled
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isModalOpen]);
 
   return (
     <div ref={galleryRef} className="mb-8">

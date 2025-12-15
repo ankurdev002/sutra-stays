@@ -4,6 +4,7 @@ import Button from "./Button";
 import navlinks from "@/constants/navlinks";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
 const languages = [
   { code: "en", label: "EN", name: "English" },
@@ -18,6 +19,8 @@ const Navbar = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
   const languageDropdownRef = useRef<HTMLDivElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const router = useRouter();
 
   // Handle click outside to close language dropdown
   useEffect(() => {
@@ -73,6 +76,44 @@ const Navbar = () => {
     };
   }, [isMenuOpen]);
 
+  // Handle scrolling to section after navigating from another page
+  useEffect(() => {
+    if (pathname === "/") {
+      // Check for section ID in sessionStorage (from navigation) or URL hash
+      const scrollToSection =
+        sessionStorage.getItem("scrollToSection") ||
+        (typeof window !== "undefined" && window.location.hash
+          ? window.location.hash.substring(1)
+          : null);
+
+      if (scrollToSection) {
+        // Wait for page to fully render
+        setTimeout(() => {
+          const element = document.getElementById(scrollToSection);
+          if (element) {
+            element.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          } else {
+            // Fallback: try to find element with data-section matching the id
+            const sectionElement = document.querySelector(
+              `[data-section="${scrollToSection}"]`
+            );
+            if (sectionElement) {
+              sectionElement.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          }
+          // Clear the stored section ID
+          sessionStorage.removeItem("scrollToSection");
+        }, 100);
+      }
+    }
+  }, [pathname]);
+
   // Smooth scroll handler for anchor links
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -81,6 +122,20 @@ const Navbar = () => {
     if (href.startsWith("#")) {
       e.preventDefault();
       const id = href.substring(1); // Remove the # symbol
+      
+      // Re-enable scroll in case it was disabled (e.g., from image modal)
+      document.body.style.overflow = "unset";
+      
+      // If not on home page, navigate to home page with hash
+      if (pathname !== "/") {
+        router.push(`/${href}`);
+        // Store the section ID to scroll to after navigation
+        sessionStorage.setItem("scrollToSection", id);
+        setIsMenuOpen(false);
+        return;
+      }
+      
+      // If on home page, scroll to section
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({
@@ -104,6 +159,18 @@ const Navbar = () => {
 
   // Book Now handler - scrolls to stays section
   const handleBookNow = () => {
+    // Re-enable scroll in case it was disabled (e.g., from image modal)
+    document.body.style.overflow = "unset";
+    
+    // If not on home page, navigate to home page with stays hash
+    if (pathname !== "/") {
+      router.push("/#stays");
+      sessionStorage.setItem("scrollToSection", "stays");
+      setIsMenuOpen(false);
+      return;
+    }
+    
+    // If on home page, scroll to stays section
     const staysSection = document.getElementById("stays");
     if (staysSection) {
       staysSection.scrollIntoView({

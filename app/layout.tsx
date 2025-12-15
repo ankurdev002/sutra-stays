@@ -112,8 +112,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/assets/logo/nav-logo.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any", type: "image/x-icon" },
     ],
     apple: [
       { url: "/assets/logo/nav-logo.svg", sizes: "180x180", type: "image/svg+xml" },
