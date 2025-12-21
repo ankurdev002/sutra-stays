@@ -6,38 +6,60 @@ import { useRef, useState } from "react";
 const SutraClients = () => {
   const clients = [
     {
-      name: "Anjali Patel",
-      location: "Jaipur, Rajasthan",
+      name: "Anjali Mehta",
+      location: "Udaipur, Rajasthan",
       review:
-        '"My stay at Sutra Stays was truly rejuvenating. Everything  from the thoughtful design to the serene atmosphere  felt crafted with care. You can tell the team truly understands what guests need. It\'s peaceful, personal, and made me feel completely at home."',
-      image: "/assets/images/client-image.svg",
-      video: "/assets/videos/v1.mp4",
+        "My stay at Sutra Stays felt incredibly calming. The space was beautifully designed, quiet, and very thoughtfully maintained. I loved how personal and warm everything felt—it genuinely gave me the comfort of a home away from home.",
+      image: "/assets/images/female.png",
+      video: "/assets/reviews/r1.mp4",
     },
+  
     {
-      name: "Smita Sharma",
-      location: "Mumbai, Maharashtra",
+      name: "Smita Kulkarni",
+      location: "Pune, Maharashtra",
       review:
-        '"My stay at Sutra Stays was truly rejuvenating. Everything  from the thoughtful design to the serene atmosphere  felt crafted with care. You can tell the team truly understands what guests need. It\'s peaceful, personal, and made me feel completely at home."',
-      image: "/assets/images/client-image.svg",
-      video: "/assets/videos/v2.mp4",
+        "Sutra Stays exceeded my expectations. The ambiance is peaceful, the interiors are elegant, and every small detail feels intentional. It’s the kind of place where you instantly relax and feel taken care of.",
+      image: "/assets/images/female.png",
+      video: "/assets/reviews/r2.mp4",
     },
+  
     {
-      name: "Rajesh Kumar",
-      location: "Delhi, Delhi",
+      name: "Riya & Friends",
+      location: "Delhi NCR",
       review:
-        '"My stay at Sutra Stays was truly rejuvenating. Everything  from the thoughtful design to the serene atmosphere  felt crafted with care. You can tell the team truly understands what guests need. It\'s peaceful, personal, and made me feel completely at home."',
-      image: "/assets/images/client-image.svg",
-      video: "/assets/videos/v1.mp4",
+        "We stayed at Sutra Stays with friends and absolutely loved the experience. The rooms were spacious, the atmosphere was serene, and it felt perfect for spending quality time together. It’s stylish yet very comfortable.",
+      image: "/assets/images/female.png",
+      video: "/assets/reviews/r3.mp4",
     },
+  
     {
-      name: "Deepak Singh",
+      name: "Rajiv Malhotra",
       location: "Bengaluru, Karnataka",
       review:
-        '"My stay at Sutra Stays was truly rejuvenating. Everything  from the thoughtful design to the serene atmosphere  felt crafted with care. You can tell the team truly understands what guests need. It\'s peaceful, personal, and made me feel completely at home."',
-      image: "/assets/images/client-image.svg",
-      video: "/assets/videos/v2.mp4",
+        "Sutra Stays offers a perfect balance of comfort and elegance. The calm environment helped me unwind after long workdays, and the attention to detail truly stood out. I would definitely choose this place again.",
+      image: "/assets/images/male.png",
+      video: "/assets/reviews/r4.mp4",
+    },
+  
+    {
+      name: "The Verma Family",
+      location: "Gurugram, Haryana",
+      review:
+        "Our family had a wonderful stay at Sutra Stays. The space felt safe, warm, and welcoming for both adults and children. Everything was well-organized, peaceful, and designed to make families feel comfortable.",
+      image: "/assets/images/family.png",
+      video: "/assets/reviews/r5.mp4",
+    },
+  
+    {
+      name: "Neha Saxena",
+      location: "Indore, Madhya Pradesh",
+      review:
+        "Staying at Sutra Stays was a delightful experience. The serene setting, tasteful decor, and homely vibe made my trip very special. You can truly feel the care and thought behind the place.",
+      image: "/assets/images/female.png",
+      video: "/assets/reviews/r6.mp4",
     },
   ];
+  
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -84,7 +106,7 @@ const SutraClients = () => {
               key={currentIndex}
               className="rounded-3xl overflow-hidden w-[320px] h-[220px] object-cover lg:w-[400px] lg:h-[560px] lg:object-fill"
               // style={{ width: "400px", height: "560px", objectFit: "fill" }}
-              muted
+              // muted
             >
               <source src={currentClient.video} type="video/mp4" />
               <track
@@ -144,6 +166,7 @@ const SutraClients = () => {
                         alt={currentClient.name}
                         width={54}
                         height={54}
+                        className="w-14 h-14 object-cover rounded-full"
                       />
                       <div className="flex flex-col">
                         <p className="text-black text-lg font-semibold font-inter leading-7 -tracking-[-0.4px]">
