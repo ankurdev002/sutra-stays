@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const SutraClients = () => {
   const clients = [
@@ -88,6 +88,15 @@ const SutraClients = () => {
     );
   };
 
+  // Reset video state when slide changes
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      setIsPlaying(false);
+    }
+  }, [currentIndex]);
+
   const currentClient = clients[currentIndex];
 
   return (
@@ -104,8 +113,8 @@ const SutraClients = () => {
             <video
               ref={videoRef}
               key={currentIndex}
-              className="rounded-3xl overflow-hidden w-[320px] h-[220px] object-cover lg:w-[400px] lg:h-[560px] lg:object-fill"
-              // style={{ width: "400px", height: "560px", objectFit: "fill" }}
+              className="rounded-3xl overflow-hidden w-full max-h-[380px] aspect-[9 / 16] object-contain
+               lg:max-w-[720px]"
               // muted
             >
               <source src={currentClient.video} type="video/mp4" />
@@ -119,7 +128,12 @@ const SutraClients = () => {
             {/* Custom Play/Pause Button */}
             <button
               onClick={togglePlay}
-              className="absolute top-1/2 left-1/2 w-25 h-25 rounded-full flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 bg-white text-black text-4xl"
+              className={`absolute rounded-full flex items-center justify-center bg-white text-black transition-all duration-300 ${
+                isPlaying
+                  ? "bottom-[12px] left-[12px] w-[30px] h-[30px] text-xs"
+                  : "top-1/2 left-1/2 w-25 h-25 text-4xl transform -translate-x-1/2 -translate-y-1/2"
+              }`}
+              aria-label={isPlaying ? "Pause video" : "Play video"}
             >
               {isPlaying ? (
                 "❚❚"
@@ -130,8 +144,7 @@ const SutraClients = () => {
                   width={25}
                   height={25}
                 />
-              )}{" "}
-              {/* Play icon (►) or Pause icon (❚❚) */}
+              )}
             </button>
           </div>
           {/* carosuel */}
