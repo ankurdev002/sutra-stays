@@ -5,20 +5,20 @@ interface PropertyMapProps {
   coordinates: { lat: number; lng: number };
   location: string;
  title: string
+ map: string
 }
 
-const PropertyMap = ({ coordinates, location, title}: PropertyMapProps) => {
+const PropertyMap = ({ coordinates, location, title, map}: PropertyMapProps) => {
   // Using Google Maps embed API - you can replace with a proper map component
-  const mapUrl = `https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || 'YOUR_API_KEY'}&q=${coordinates.lat},${coordinates.lng}`;
 
   return (
     <div className="mb-8">
       <h2 className="text-2xl font-semibold font-inter text-black mb-4">
-        Where you'll be
+        Where you&apos;ll be
       </h2>
       <h4 className="text-[16px] font-medium font-inter text-black my-4">{title}</h4>
       <div className="relative w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden border border-gray-200">
-        {process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ? (
+        {map ? (
           <iframe
             width="100%"
             height="100%"
@@ -26,7 +26,7 @@ const PropertyMap = ({ coordinates, location, title}: PropertyMapProps) => {
             loading="lazy"
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
-            src={mapUrl}
+            src={map}
           ></iframe>
         ) : (
           <div className="w-full h-full bg-gray-200 flex items-center justify-center">

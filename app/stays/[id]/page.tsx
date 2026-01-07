@@ -109,6 +109,7 @@ export default function StayPage() {
             coordinates={stay.coordinates}
             location={stay.location}
             title={stay.title}
+            map={stay.map}
           />
         </div>
       </div>

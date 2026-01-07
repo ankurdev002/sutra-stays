@@ -36,6 +36,7 @@ export interface Stay {
     lat: number;
     lng: number;
   };
+  map: string;
 }
 
 export const staysData: Stay[] = [
@@ -91,6 +92,7 @@ export const staysData: Stay[] = [
       lat: 28.4089,
       lng: 77.0928,
     },
+    map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1754.2038163585696!2d77.09906693558193!3d28.437125918737536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1f5326160b63%3A0xce7bdc466390c4b6!2sSaraswati%20Kunj%20Rd%2C%20Sector%2053%2C%20Gurugram%2C%20Haryana%20122011!5e0!3m2!1sen!2sin!4v1767811716713!5m2!1sen!2sin",
   },
   {
     id: "serene-67",
@@ -145,6 +147,7 @@ export const staysData: Stay[] = [
       lat: 28.3949,
       lng: 77.0824,
     },
+    map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7020.161277253786!2d77.05053206274366!3d28.386632292454735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d23ca0e000c0d%3A0x6037ed9e24222602!2sSector%2067%2C%20Gurugram%2C%20Haryana%20122101!5e0!3m2!1sen!2sin!4v1767811979086!5m2!1sen!2sin",
   },
 ];
 
