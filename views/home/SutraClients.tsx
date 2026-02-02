@@ -14,14 +14,14 @@ const SutraClients = () => {
       video: "/assets/reviews/r1.mp4",
     },
   
-    {
-      name: "Smita Kulkarni",
-      location: "Pune, Maharashtra",
-      review:
-        "Sutra Stays exceeded my expectations. The ambiance is peaceful, the interiors are elegant, and every small detail feels intentional. It’s the kind of place where you instantly relax and feel taken care of.",
-      image: "/assets/images/female.png",
-      video: "/assets/reviews/r2.mp4",
-    },
+    // {
+    //   name: "Smita Kulkarni",
+    //   location: "Pune, Maharashtra",
+    //   review:
+    //     "Sutra Stays exceeded my expectations. The ambiance is peaceful, the interiors are elegant, and every small detail feels intentional. It’s the kind of place where you instantly relax and feel taken care of.",
+    //   image: "/assets/images/female.png",
+    //   video: "/assets/reviews/r2.mp4",
+    // },
   
     {
       name: "Riya & Friends",
@@ -32,32 +32,32 @@ const SutraClients = () => {
       video: "/assets/reviews/r3.mp4",
     },
   
-    {
-      name: "Rajiv Malhotra",
-      location: "Bengaluru, Karnataka",
-      review:
-        "Sutra Stays offers a perfect balance of comfort and elegance. The calm environment helped me unwind after long workdays, and the attention to detail truly stood out. I would definitely choose this place again.",
-      image: "/assets/images/male.png",
-      video: "/assets/reviews/r4.mp4",
-    },
+    // {
+    //   name: "Rajiv Malhotra",
+    //   location: "Bengaluru, Karnataka",
+    //   review:
+    //     "Sutra Stays offers a perfect balance of comfort and elegance. The calm environment helped me unwind after long workdays, and the attention to detail truly stood out. I would definitely choose this place again.",
+    //   image: "/assets/images/male.png",
+    //   video: "/assets/reviews/r4.mp4",
+    // },
   
-    {
-      name: "The Verma Family",
-      location: "Gurugram, Haryana",
-      review:
-        "Our family had a wonderful stay at Sutra Stays. The space felt safe, warm, and welcoming for both adults and children. Everything was well-organized, peaceful, and designed to make families feel comfortable.",
-      image: "/assets/images/family.png",
-      video: "/assets/reviews/r5.mp4",
-    },
+    // {
+    //   name: "The Verma Family",
+    //   location: "Gurugram, Haryana",
+    //   review:
+    //     "Our family had a wonderful stay at Sutra Stays. The space felt safe, warm, and welcoming for both adults and children. Everything was well-organized, peaceful, and designed to make families feel comfortable.",
+    //   image: "/assets/images/family.png",
+    //   video: "/assets/reviews/r5.mp4",
+    // },
   
-    {
-      name: "Neha Saxena",
-      location: "Indore, Madhya Pradesh",
-      review:
-        "Staying at Sutra Stays was a delightful experience. The serene setting, tasteful decor, and homely vibe made my trip very special. You can truly feel the care and thought behind the place.",
-      image: "/assets/images/female.png",
-      video: "/assets/reviews/r6.mp4",
-    },
+    // {
+    //   name: "Neha Saxena",
+    //   location: "Indore, Madhya Pradesh",
+    //   review:
+    //     "Staying at Sutra Stays was a delightful experience. The serene setting, tasteful decor, and homely vibe made my trip very special. You can truly feel the care and thought behind the place.",
+    //   image: "/assets/images/female.png",
+    //   video: "/assets/reviews/r6.mp4",
+    // },
   ];
   
 
@@ -101,11 +101,11 @@ const SutraClients = () => {
 
   return (
     <div className="w-full min-h-dvh bg-off-white py-24 px-4 lg:px-20">
-      <h1 className="lg:text-2xl font-inter font-extralight leading-4.5 tracking-0 text-charcoal-light-gray">
+      {/* <h1 className="lg:text-2xl font-inter font-extralight leading-4.5 tracking-0 text-charcoal-light-gray">
         04 — What Our Clients Say
-      </h1>
+      </h1> */}
       <p className="pt-4.5 text-black text-2xl lg:text-5xl font-light font-inter">
-        In Their Words
+        What Our Guests Say
       </p>
       <div className="flex flex-col lg:flex-row items-start justify-center pt-8">
         <div className="flex flex-col lg:flex-row justify-start gap-10 items-center">

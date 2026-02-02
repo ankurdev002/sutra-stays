@@ -91,7 +91,7 @@ const HeroSection = () => {
               }
             />
             <p className="text-white lg:text-4xl font-medium font-inter lg:leading-10 capitalize">
-              Every stay is a Sutra a story of peace, presence, and pure nature.
+            Experience  heartfelt  hospitality cities.
             </p>
           </div>
           <hr className="lg:w-3/4 border-white" />

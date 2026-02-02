@@ -9,7 +9,7 @@ const WhySutra = () => {
     },
     {
       number: 12,
-      title: "Experts Behind the Scenes Designers, hosts",
+      title: "Experts Behind The Scenes",
       image: "/assets/images/pruzina-color.mp4.svg",
     },
     {
@@ -25,10 +25,10 @@ const WhySutra = () => {
   ];
   return (
     <div className="w-full min-h-dvh bg-deep-green-dark py-24 px-4 lg:px-18">
-      <h1 className="lg:text-2xl font-inter font-extralight leading-4.5 tracking-0 text-charcoal-light-gray">
+      {/* <h1 className="lg:text-2xl font-inter font-extralight leading-4.5 tracking-0 text-charcoal-light-gray">
         02 — Why Sutra Stays?
-      </h1>
-      <p className="pt-4.5 text-white text-2xl lg:text-5xl font-light font-inter">
+      </h1> */}
+      <p className="pt-4.5 text-white text-2xl lg:text-5xl font-light font-inter capitalize">
         Where comfort meets reliability.
       </p>
       <div className="border-[0.5px] border-b-0 p-1.5 mt-6"></div>
@@ -42,7 +42,7 @@ const WhySutra = () => {
           </p>
           <div className="flex flex-col gap-5 w-full">
             <p className="text-charcoal-light-gray-4 text-sm font-semibold font-inter leading-4">
-              Some Number About Us
+              Some Figurers About Us
             </p>
 
             <div className="grid grid-cols-2 gap-2">

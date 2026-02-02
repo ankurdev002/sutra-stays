@@ -42,7 +42,7 @@ export interface Stay {
 export const staysData: Stay[] = [
   {
     id: "joes-nest",
-    title: "Sutra Stays® — Joe's Nest",
+    title: "Stay® — Joe's Nest",
     location: "Saraswati Kunj, Sector 54, Gurugram, Haryana",
     rating: 4.5,
     reviews: 50,
@@ -96,7 +96,7 @@ export const staysData: Stay[] = [
   },
   {
     id: "serene-67",
-    title: "Sutra Stays® — Serene 67",
+    title: "Stay® — Serene 67",
     location: "Sector 67, Gurgaon, 122102, Haryana",
     rating: 4.5,
     reviews: 50,

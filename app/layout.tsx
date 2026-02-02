@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sutra Stays | Stay. Belong. Be - Premium Stays in Delhi & Mumbai",
     description:
-      "Every stay is a Sutra - a story of peace, presence, and pure nature. Discover curated stays that bring together nature, comfort, and mindful design in Delhi and Mumbai.",
+      "Experience  heartfelt  hospitality cities.",
     url: process.env.NEXT_PUBLIC_SITE_URL || "https://sutrastays.com",
     siteName: "Sutra Stays",
     images: [

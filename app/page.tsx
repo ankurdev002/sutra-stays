@@ -26,7 +26,7 @@ export default function Home() {
       <section id="reviews" data-section="reviews">
         <SutraClients />
       </section>
-      <ExploreSutra />
+      {/* <ExploreSutra /> */}
     </div>
   );
 }
